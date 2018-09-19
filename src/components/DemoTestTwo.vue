@@ -2,7 +2,7 @@
   <div class="two">
     <input type="text" id="focus" v-model="model_filter">
       <ul>
-        <li v-for="(infos,i) in getPlayers" :key="i">
+        <li v-for="(infos,i) in getPlayers" :key="i" transition="staggered" stagger="100">
             {{infos.name}}
         </li>
       </ul>
@@ -53,3 +53,20 @@ export default {
   }*/
 }
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+<style>
+ul {
+    padding-left: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.staggered-transition {
+    transition: all .5s ease;
+    overflow: hidden;
+    margin: 0;
+    height: 20px;
+}
+.staggered-enter, .staggered-leave {
+    opacity: 0;
+    height: 0;
+}
+</style>

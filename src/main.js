@@ -5,7 +5,9 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import vSelect from "vue-select";
 Vue.use(VueAxios, axios);
+Vue.component("v-select", vSelect);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
