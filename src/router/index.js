@@ -14,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: "/demo-1",
+      path: "/Search",
       name: "DemoTestOne",
       component: DemoTestOne
     },

@@ -2,10 +2,13 @@
   <div id="app">
    <ul class="nav">
       <li>
-        <router-link to="/demo-1">DemoOne</router-link>
+        <router-link to="home">Home</router-link>
       </li>
       <li>
-        <router-link to="/demo-2">DemoTwo</router-link>
+        <router-link to="/Search">Search</router-link>
+      </li>
+      <li>
+        <router-link to="/demo-2">Ajax For search</router-link>
       </li>
       <li>
         <router-link to="/demo-3">DemoThree</router-link>
