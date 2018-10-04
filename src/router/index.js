@@ -1,32 +1,38 @@
+//router
+
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "../components/Home";
-import DemoTestOne from "../components/DemoTestOne";
-import DemoTestTwo from "../components/DemoTestTwo";
-import DemoTestThree from "../components/DemoTestThree";
+import Vuex from "vuex";
+import ShopTemView from "../components/new-template/ShopTemView";
+import AboutTemView from "../components/new-template/AboutTemView";
+import FAQTemView from "../components/new-template/FaqTemView";
+import ContentTemView from "../components/new-template/ContentTemView";
+import store from "store";
+
 Vue.use(Router);
+Vue.use(Vuex);
 export default new Router({
   mode: "history",
   routes: [
     {
-      path: "/",
-      name: "Home",
-      component: Home
+      path: "/Shop",
+      name: "search",
+      component: ShopTemView
     },
     {
-      path: "/Search",
-      name: "DemoTestOne",
-      component: DemoTestOne
+      path: "/About",
+      name: "about",
+      component: AboutTemView
     },
     {
-      path: "/demo-2",
-      name: "DemoTestTwo",
-      component: DemoTestTwo
+      path: "/FAQ",
+      name: "faq",
+      component: FAQTemView
     },
     {
-      path: "/demo-3",
-      name: "DemoTestThree",
-      component: DemoTestThree
+      path: "/Content",
+      name: "content",
+      component: ContentTemView
     }
   ]
 });

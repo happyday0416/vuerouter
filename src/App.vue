@@ -1,57 +1,118 @@
 <template>
   <div id="app">
-   <ul class="nav">
-      <li>
-        <router-link to="home">Home</router-link>
-      </li>
-      <li>
-        <router-link to="/Search">Search</router-link>
-      </li>
-      <li>
-        <router-link to="/demo-2">Ajax For search</router-link>
-      </li>
-      <li>
-        <router-link to="/demo-3">DemoThree</router-link>
-      </li>
-    </ul>
-    <router-view></router-view>
+    <div class="contoller">
+      <header class="header">
+        <!--<div class="input-search">
+          <v-select label="name" :filterable="false" :options="options" @search="onSearch">
+            <NoOption></NoOption>
+            <OptionOther></OptionOther>
+           <selectedOption></selectedOption>
+          </v-select>
+          {{answer}}
+        </div>-->
+        <ul class="nav">
+            <!--<li>
+              <router-link to="home">Home</router-link>
+            </li>-->
+            <router-link tag="li" to="/Shop">
+              <a active-class="u-link--Active">Shop</a>
+            </router-link>
+            <router-link tag="li" to="/About">
+              <a>About</a>
+            </router-link>
+            <router-link tag="li" to="/FAQ">
+              <a>FAQ</a>
+            </router-link>
+            <router-link tag="li" to="/Content">
+              <a>Content</a>
+            </router-link>
+            <router-link tag="li" to="/Content">
+              <v-icon name="shopping-basket"/>
+            </router-link>
+            
+        </ul>
+        </header>
+        <router-view></router-view>
+      </div>
   </div>
 </template>
 
 <script>
-import DemoTestOne from "./components/DemoTestOne"
-import DemoTestTwo from "./components/DemoTestTwo"
-import DemoTestThree from "./components/DemoTestThree"
+import VueLodash from "vue-lodash";
+// or import all icons if you don't care about bundle size
+import debounce from "lodash/debounce";
+import _ from 'lodash';
+import nprogress from "nprogress";
+
 
 export default {
   name: "app",
   components: {
-    DemoTestOne,DemoTestTwo,DemoTestThree
+    VueLodash,_,debounce,nprogress
   },
-  data() {
-    return {
-      showWhich: "DemoTestOne"
-    }
+  methods: {
+   /* onSearch(search, loading) {
+      loading(true);
+      this.search(loading, search, this);
+    },
+    search: _.debounce((loading, search, vm) => {
+      fetch(
+        `https://api.github.com/search/repositories?q=${escape(search)}`
+      ).then(res => {
+        res.json().then(function(res){
+          console.log(res);
+          vm.options = res.items.full_name;
+        });
+        loading(false);
+      });
+    }, 350),
+    doAjax() {
+        this.isLoading = true;
+        // simulate AJAX
+        setTimeout(() => {
+          this.isLoading = false
+        },5000)
+    }*/
+
+
+
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  /*font-family: "Karma", Roboto, Helvetica, arial, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 ul.nav > li {
-  display: inline;
-  padding-left: 10px;
+  display: inline-block;
+    padding-left: 10px;
+    width: 20%;
+    height: 56px;
+    line-height: 48px;
 }
-ul.nav > li::before {
-  content: "\2630";
-  padding-right: 5px;
+.router-link-active a{
+  color: rgba(127, 82, 113, 1);
+ 
 }
+
+.nav{
+  width: 48%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ul li a:hover { text-decoration: none; }
+
+.header {
+  height: 70px;
+  margin:0 auto;
+  /*background: radial-gradient(ellipse farthest-corner at center bottom, #6beace, #2e9aa4);*/
+  padding: 10px 0;
+}
+
+
 </style>

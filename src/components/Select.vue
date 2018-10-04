@@ -3,9 +3,10 @@
       <v-select :options="options"
                 label="name"
                 :filterable="false"
-                v-model="vSelectUser"
+                v-model="vSelectUser" 
+                v-on:change="applyColor"
       ></v-select>
-
+      
       <span>{{vSelectUser}}</span>
   </div>
 </template>
@@ -19,6 +20,12 @@ export default {
       multiSelectUser: null,
       vSelectUser: null
     };
+  },
+  methods:{
+     applyColor:function (){
+       this.$emit('triggerChange',this.selected);
+       console.log("1")
+    }
   }
 };
 </script>
